@@ -40,9 +40,7 @@ class UserState(StatesGroup):
     growth = State()
     weight = State()
     man = State()
-    finish = State()
-
-
+   
 # обработчик начала общения с ботом
 @dp.message_handler(commands=['start'])
 # функция старта
@@ -52,7 +50,7 @@ async def start(message):
                         'Нажмите одну из кнопок для продолжения', reply_markup=kb)
 
 
-# обработчик ожидания сообщения от пользователя на слово Calories
+# обработчик ожидания нажатия кнопки «Расчитать»
 @dp.message_handler(text=['Расчитать'], state=None)
 # функция получения возраста пользователя
 async def set_age(message: types.Message, state: FSMContext):
